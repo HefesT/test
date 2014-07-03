@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Feeds Import Commerce Products feature.
+ */
+
+include_once 'feeds_import_commerce_products.features.inc';

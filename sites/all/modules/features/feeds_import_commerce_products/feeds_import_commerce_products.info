@@ -1,0 +1,10 @@
+name = Feeds Import Commerce Products
+description = Import commerce products from csv
+core = 7.x
+package = Feeds
+dependencies[] = ctools
+dependencies[] = feeds
+features[ctools][] = feeds:feeds_importer_default:1
+features[features_api][] = api:1
+features[feeds_importer][] = import_commerce_products
+features[feeds_importer][] = import_product_node_commerce_reference

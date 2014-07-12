@@ -55,6 +55,18 @@ function theme_facetapi_link_inactive($variables) {
   $sanitize = empty($variables['options']['html']);
   $variables['text'] = ($sanitize) ? check_plain($variables['text']) : $variables['text'];
 
+  // Translate facet tax term items for product category
+  // @TODO : Bad coding see how do this outside facetapi 
+//  dpm($variables);
+//  if (stristr($variables['options']['query']['f'][0],'field_product_category:')){
+    $terms =array();
+    $terms = taxonomy_get_term_by_name($variables['text'], 'product_category');
+    if (count($terms) > 0){
+      $term = i18n_taxonomy_localize_terms(array_pop($terms));
+      $variables['text'] = $term->name;
+    }
+//  }
+
   // Adds count to link if one was passed.
   if (isset($variables['count'])) {
     $variables['text'] .= ' ' . theme('facetapi_count', $variables);
@@ -92,11 +104,22 @@ function theme_facetapi_count($variables) {
  * @ingroup themeable
  */
 function theme_facetapi_link_active($variables) {
-
+  // Translate facet tax term items for product category
+  // @TODO : Bad coding see how do this outside facetapi 
+//  dpm($variables);
+//  if (stristr($variables['options']['query']['f'][0],'field_product_category:')){
+    $terms =array();
+    $terms = taxonomy_get_term_by_name($variables['text'], 'product_category');
+    if (count($terms) > 0){
+      $term = i18n_taxonomy_localize_terms(array_pop($terms));
+      $variables['text'] = $term->name;
+    }
+//  }
+    
   // Sanitizes the link text if necessary.
   $sanitize = empty($variables['options']['html']);
   $link_text = ($sanitize) ? check_plain($variables['text']) : $variables['text'];
-
+    
   // Theme function variables fro accessible markup.
   // @see http://drupal.org/node/1316580
   $accessible_vars = array(

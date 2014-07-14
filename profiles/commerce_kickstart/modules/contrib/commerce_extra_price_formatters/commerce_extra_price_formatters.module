@@ -126,7 +126,7 @@ function commerce_extra_price_formatters_field_formatter_settings_form($field, $
         '#description' => t('Text will be shown before the price'),
         '#default_value' => empty($settings['prefix']) ? '' : $settings['prefix'],
       );
-
+      
       $element['suffix'] = array(
         '#type' => 'textfield',
         '#title' => t('Suffix'),
@@ -334,7 +334,7 @@ function commerce_extra_price_formatters_field_formatter_view($entity_type, $ent
           $text_format = empty($display['settings']['text_format']) ? NULL : $display['settings']['text_format'];
 
           if (!empty($display['settings']['prefix'])) {
-            $markup .= '<span class="price_prefix">' . check_markup($display['settings']['prefix'], $text_format) . '</span> ';
+            $markup .= '<span class="price_prefix">' . t(check_markup($display['settings']['prefix'], $text_format)) . '</span> ';
           }
           if ($display['settings']['alternative_text_for_zero_price'] && $item['amount'] == 0){
             $markup .= check_markup($display['settings']['alternative_text_for_zero_price'], $text_format);

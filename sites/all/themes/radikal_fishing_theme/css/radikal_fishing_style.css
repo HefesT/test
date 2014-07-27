@@ -378,3 +378,23 @@ div.messages.commerce-add-to-cart-confirmation {
   background: url("../images/btn_twitter.png") no-repeat; }
 .not-logged-in #block-connector-one-click-block #edit-oauthconnector-google {
   background: url("../images/btn_google.png") no-repeat; }
+
+
+
+
+/*Prueba de añadir css a superfish*/
+/*.sf-menu.sf-style-simple a, .sf-menu.sf-style-simple a:visited {*/
+/*.sf-menu .sf-style-simple .sf-menu-parents a {*/
+#superfish-2 .rf-main-menu-links {
+    /*color: red;*/
+    background: -moz-linear-gradient(center top , #FFF, #C2E9FB) repeat scroll 0% 0% transparent;
+    /*color: #555;*/
+    font: 12px Arial,Helvetica,Tahoma,Verdana,Sans-serif;
+    padding: 1em 0.7em;
+    text-decoration: none;
+    text-shadow: 1px 1px 0px #FFF;
+}
+
+#superfish-2 .rf-main-menu-list {
+    margin: 0px 0px 0px 1px;
+}

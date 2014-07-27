@@ -390,7 +390,7 @@ div.messages.commerce-add-to-cart-confirmation {
 *   Styles for radikal fishing product category menu (sf-1)
 */
 #superfish-1 .rf-main-menu-links {
-    /*color: red;*/
+    color: green;
     background: -moz-linear-gradient(center top , #FFF, #C2E9FB) repeat scroll 0% 0% transparent;
     /*color: #555;*/
     font: 12px Arial,Helvetica,Tahoma,Verdana,Sans-serif;
@@ -401,4 +401,9 @@ div.messages.commerce-add-to-cart-confirmation {
 
 #superfish-1 .rf-main-menu-list {
     margin: 0px 0px 0px 1px;
+}
+
+#block-superfish-1 .content {
+    margin: auto;
+    display: table;
 }

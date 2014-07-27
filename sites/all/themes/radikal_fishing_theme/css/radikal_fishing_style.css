@@ -385,7 +385,11 @@ div.messages.commerce-add-to-cart-confirmation {
 /*Prueba de añadir css a superfish*/
 /*.sf-menu.sf-style-simple a, .sf-menu.sf-style-simple a:visited {*/
 /*.sf-menu .sf-style-simple .sf-menu-parents a {*/
-#superfish-2 .rf-main-menu-links {
+
+/*
+*   Styles for radikal fishing product category menu (sf-1)
+*/
+#superfish-1 .rf-main-menu-links {
     /*color: red;*/
     background: -moz-linear-gradient(center top , #FFF, #C2E9FB) repeat scroll 0% 0% transparent;
     /*color: #555;*/
@@ -395,6 +399,6 @@ div.messages.commerce-add-to-cart-confirmation {
     text-shadow: 1px 1px 0px #FFF;
 }
 
-#superfish-2 .rf-main-menu-list {
+#superfish-1 .rf-main-menu-list {
     margin: 0px 0px 0px 1px;
 }

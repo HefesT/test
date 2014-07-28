@@ -409,10 +409,13 @@ div.messages.commerce-add-to-cart-confirmation {
     display: table;
 }
 
-html:lang(en) #block-superfish-1 .sf-item-1,.sf-item-2,.sf-item-3,.sf-item-6,.sf-item-7 {
+html:lang(en)#block-superfish-1.sf-item-1,.sf-item-2,.sf-item-3,.sf-item-6 {
+    width: 73px;
+}
+html:lang(en)#block-superfish-1.sf-item-7 {
     width: 73px;
 }
 
-html:lang(es) #block-superfish-1 .sf-item-1,.sf-item-2,.sf-item-3,.sf-item-6 {
+html:lang(es)#block-superfish-1.sf-item-1,.sf-item-2,.sf-item-3,.sf-item-6 {
     width: 72px;
 }

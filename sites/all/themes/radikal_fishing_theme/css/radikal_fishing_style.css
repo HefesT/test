@@ -394,7 +394,7 @@ div.messages.commerce-add-to-cart-confirmation {
     background: -moz-linear-gradient(center top , #FFF, #C2E9FB) repeat scroll 0% 0% transparent;
     /*color: #555;*/
     font: 12px Arial,Helvetica,Tahoma,Verdana,Sans-serif;
-    padding: 1em 0.7em;
+    padding: 1.4em 0.7em;
     text-decoration: none;
     text-shadow: 1px 1px 0px #FFF;
 }
@@ -407,3 +407,11 @@ div.messages.commerce-add-to-cart-confirmation {
     margin: auto;
     display: table;
 }
+
+html:lang(en) #block-superfish-1 .sf-item-1,.sf-item-2,.sf-item-3,.sf-item-6 {
+    width: 70px;
+}
+
+/*html:lang(es) #block-superfish-1 .sf-item-1,.sf-item-2,.sf-item-3,.sf-item-6) {
+    width: 70px;
+}*/

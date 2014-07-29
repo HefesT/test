@@ -1,0 +1,25 @@
+From 7957cda36062b3cf68b1467d199b637d738c3f77 Mon Sep 17 00:00:00 2001
+From: muffinzap <carlos@galicloud.com>
+Date: Thu, 29 May 2014 10:32:43 +0200
+Subject: [PATCH] Issue #1804142 by muffinzap
+
+---
+ commerce_extra_price_formatters.module | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/commerce_extra_price_formatters.module b/commerce_extra_price_formatters.module
+index a73f9e1..19abb3f 100644
+--- a/commerce_extra_price_formatters.module
++++ b/commerce_extra_price_formatters.module
+@@ -334,7 +334,7 @@ function commerce_extra_price_formatters_field_formatter_view($entity_type, $ent
+           $text_format = empty($display['settings']['text_format']) ? NULL : $display['settings']['text_format'];
+ 
+           if (!empty($display['settings']['prefix'])) {
+-            $markup .= '<span class="price_prefix">' . check_markup($display['settings']['prefix'], $text_format) . '</span> ';
++            $markup .= '<span class="price_prefix">' . t(check_markup($display['settings']['prefix'], $text_format)) . '</span> ';
+           }
+           if ($display['settings']['alternative_text_for_zero_price'] && $item['amount'] == 0){
+             $markup .= check_markup($display['settings']['alternative_text_for_zero_price'], $text_format);
+-- 
+1.9.1
+

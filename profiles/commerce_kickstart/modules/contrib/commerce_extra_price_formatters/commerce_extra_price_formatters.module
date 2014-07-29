@@ -347,7 +347,7 @@ function commerce_extra_price_formatters_field_formatter_view($entity_type, $ent
           }
 
           if (!empty($display['settings']['suffix'])) {
-            $markup .= ' <span class="price_suffix">' . check_markup($display['settings']['suffix'], $text_format) . '</span>';
+            $markup .= ' <span class="price_suffix">' . t(check_markup($display['settings']['suffix'], $text_format)) . '</span>';
           }
 
           $element[$delta] = array(

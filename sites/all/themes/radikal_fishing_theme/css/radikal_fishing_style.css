@@ -390,18 +390,33 @@ div.messages.commerce-add-to-cart-confirmation {
 *   Styles for radikal fishing product category menu (sf-1)
 */
 #superfish-1 .rf-main-menu-links {
-    color: green;
-    background: -moz-linear-gradient(center top , #FFF, #C2E9FB) repeat scroll 0% 0% transparent;
+    color: #FFFFFF;;
+    border-radius: 14px;
+    /*background: -moz-linear-gradient(center top , #FFF, #C2E9FB) repeat scroll 0% 0% transparent;*/
     /*color: #555;*/
     font: 12px Arial,Helvetica,Tahoma,Verdana,Sans-serif;
+    font-weight: bold;
+    text-shadow: none;
     padding: 1.4em 0.7em;
     text-decoration: none;
-    text-shadow: 1px 1px 0px #FFF;
+    text-shadow: none;
     text-align: center;
+    
+    background: #2f2ad3; /* Old browsers */
+    background: -moz-linear-gradient(top,  #2f2ad3 0%, #9c9bf2 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2f2ad3), color-stop(100%,#9c9bf2)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #2f2ad3 0%,#9c9bf2 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #2f2ad3 0%,#9c9bf2 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #2f2ad3 0%,#9c9bf2 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #2f2ad3 0%,#9c9bf2 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2f2ad3', endColorstr='#9c9bf2',GradientType=0 ); /* IE6-9 */
+
 }
 
 #superfish-1 .rf-main-menu-list {
     margin: 0px 0px 0px 1px;
+    border-radius: 14px;
+    border: none;
 }
 
 #block-superfish-1 .content {
@@ -430,3 +445,22 @@ html:lang(es) #block-superfish-1 .sf-item-3,
 html:lang(es) #block-superfish-1 .sf-item-6 {
     width: 72px;
 }
+
+/*
+*   Styles for view-collection-products
+*/
+
+#region-content ul.products-per-collection  li.views-row{
+    width:  200px;
+    margin: 5px;
+    border: 2px solid #4141CA;
+    border-radius: 8px;
+    padding-bottom: 0px;
+    clear: none;
+}
+
+#region-content ul.products-per-collection  li.views-row img{
+    text-align: center;
+    
+}
+

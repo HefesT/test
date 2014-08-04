@@ -1,0 +1,13 @@
+<?php
+/**
+ * @file
+ * Helper hooks and functions for Radikal Fishing Site
+ */
+
+/**
+ * Implements hook_username_alter().
+ * Note: Needed for name in addresses dont change de token [user:name]
+ */
+function radikal_fishing_func_username_alter(&$name, $account) {
+  $name = $account->name;
+}

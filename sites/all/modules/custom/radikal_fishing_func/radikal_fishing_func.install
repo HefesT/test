@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Schema definitions install/update/uninstall hooks.
+ */
+function radikal_fishing_func_install(){
+  // Upgrade the  module's weight for better translations.
+//  db_update('system')
+//    ->fields(array('weight' => 9))
+//    ->condition('name', 'bb_sync_translation', '=')
+//    ->execute();
+}

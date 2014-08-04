@@ -1,0 +1,12 @@
+name = Radikal Fishing (utilities)
+description = [BBS] Especific configuration for Radikal Fishing Site.
+package = Big Bang Soft
+core = 7.x
+;stylesheets[all][] = radikal_fishing_func.css
+
+; Information added by drupal.org packaging script on 2014-08-04
+version = "7.x-1.0-beta2"
+core = "7.x"
+project = "radikal_fishing_func"
+datestamp = "1314227824"
+

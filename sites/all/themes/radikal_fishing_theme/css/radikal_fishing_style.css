@@ -463,9 +463,33 @@ html:lang(es) #block-superfish-1 .sf-item-6 {
     clear: none;
 }
 
+#region-content ul.products-per-collection  li.views-row:hover{
+    opacity:    0.5;
+}
 /*#region-content .view-collection-products .view-content ul.products-per-collection  li.views-row span article a {*/
 /*.view-collection-taxonomy-term .view-content .item-list .products-per-collection li .commerce-product-field {*/
  
 .view-collection-products .view-content .item-list .products-per-collection li .commerce-product-field .field-type-image {
     text-align: center;
+}
+
+/* Styles commerce product list view mode*/
+.view-collection-products .view-content .item-list .products-per-collection li .commerce-product-field .field-type-commerce-price {
+    margin-left: 4px;
+}
+
+.view-collection-products .view-content .item-list .products-per-collection li div.form-type-item {
+    margin-left: 4px;
+}
+
+/*Cart view styles*/
+/* h2 field name title*/
+#views-form-commerce-cart-form-default div table tbody tr td div.commerce-product-product div.content h2.field-name-title-field {
+    margin: 0;
+}
+
+/*div wraper for product title*/
+#views-form-commerce-cart-form-default div table tbody tr td div.commerce-product-product div.content h2.field-name-title-field div {
+    color: #999CBF;
+    font-size: 16px;
 }

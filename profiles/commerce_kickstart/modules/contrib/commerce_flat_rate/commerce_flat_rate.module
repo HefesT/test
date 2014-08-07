@@ -114,6 +114,7 @@ function commerce_flat_rate_commerce_shipping_method_info() {
  * Implements hook_commerce_shipping_service_info().
  */
 function commerce_flat_rate_commerce_shipping_service_info() {
+  global $language;
   $services = array();
 
   // Look for flat rate services currently defined in the database.
@@ -155,6 +156,15 @@ function commerce_flat_rate_commerce_shipping_service_info() {
         $base_rate['data'] = commerce_price_component_add($base_rate, $tax_rate['price_component'], $component, TRUE);
       }
 
+      $untranslated = array(
+        'title' => $service['title'],
+        'display_title' => !empty($service['display_title']) ? $service['display_title'] : $service['title'],
+        'description' => $service['description'],
+      );
+
+      if (module_exists('i18n_string')) {
+        $service = i18n_object('commerce_flat_rate', $service)->translate($language->language);
+      }
       // Add the full service array to our return value.
       $services[$name] = array(
         'title' => $service['title'],
@@ -168,6 +178,7 @@ function commerce_flat_rate_commerce_shipping_service_info() {
         ),
         'base_rate' => $base_rate,
         'data' => $data,
+        'untranslated_strings' => $untranslated,
       );
     }
   }

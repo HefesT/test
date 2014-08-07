@@ -15,6 +15,16 @@ function commerce_flat_rate_service_form($form, &$form_state, $shipping_service)
   // Store the initial shipping service in the form state.
   $form_state['shipping_service'] = $shipping_service;
 
+  $defaults = array(
+    'untranslated_strings' => array(
+      'title' => '',
+      'display_title' => '',
+      'description' => ''
+    )
+  );
+
+  $shipping_service += $defaults;
+
   $form['flat_rate'] = array(
     '#tree' => TRUE,
   );
@@ -22,7 +32,7 @@ function commerce_flat_rate_service_form($form, &$form_state, $shipping_service)
   $form['flat_rate']['title'] = array(
     '#type' => 'textfield',
     '#title' => t('Title'),
-    '#default_value' => $shipping_service['title'],
+    '#default_value' => $shipping_service['untranslated_strings']['title'],
     '#description' => t('The administrative title of this flat rate. It is recommended that this title begin with a capital letter and contain only letters, numbers, and spaces.'),
     '#required' => TRUE,
     '#size' => 32,
@@ -53,8 +63,8 @@ function commerce_flat_rate_service_form($form, &$form_state, $shipping_service)
 
   $form['flat_rate']['display_title'] = array(
     '#type' => 'textfield',
-    '#title' => t('Display title'),
-    '#default_value' => $shipping_service['display_title'],
+    '#title' => t('Display title', array(), array('context' => 'title for display purposes')),
+    '#default_value' => $shipping_service['untranslated_strings']['display_title'],
     '#description' => t('The front end display title of this flat rate shown to customers. Leave blank to default to the <em>Title</em> from above.'),
     '#size' => 32,
   );
@@ -63,7 +73,7 @@ function commerce_flat_rate_service_form($form, &$form_state, $shipping_service)
     '#type' => 'textarea',
     '#title' => t('Description'),
     '#description' => t('Describe this flat rate if necessary. The text will be displayed in the flat rate services overview table.'),
-    '#default_value' => $shipping_service['description'],
+    '#default_value' => $shipping_service['untranslated_strings']['description'],
     '#rows' => 3,
   );
 
@@ -225,6 +235,11 @@ function commerce_flat_rate_service_form_submit($form, &$form_state) {
   else {
     drupal_set_message(t('Flat rate service saved.'));
     $form_state['redirect'] = 'admin/commerce/config/shipping/services/flat-rate';
+
+    // Update string translations.
+    if (module_exists('i18n_string')) {
+      i18n_string_object_update('commerce_flat_rate', $shipping_service);
+    }
   }
 }
 

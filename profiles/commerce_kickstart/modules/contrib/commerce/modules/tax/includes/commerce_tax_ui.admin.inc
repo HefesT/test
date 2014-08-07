@@ -74,6 +74,9 @@ function commerce_tax_ui_overview($type) {
 function theme_tax_rate_admin_overview($variables) {
   $tax_rate = $variables['tax_rate'];
 
+  // Use translated tax rate.
+  $tax_rate = commerce_i18n_object('commerce_tax_rate', $tax_rate);
+
   // Build the description as an array so we can skip the actual tax rate
   // description if it isn't set and just include the rate.
   $description = array();
@@ -103,6 +106,9 @@ function theme_tax_rate_admin_overview($variables) {
  */
 function theme_tax_type_admin_overview($variables) {
   $tax_type = $variables['tax_type'];
+
+  // Use translated tax type.
+  $tax_type = commerce_i18n_object('commerce_tax_type', $tax_type);
 
   $output = check_plain($tax_type['title']);
   $output .= ' <small>' . t('(Machine name: @type)', array('@type' => $tax_type['name'])) . '</small>';
@@ -266,6 +272,11 @@ function commerce_tax_ui_tax_rate_form_submit($form, &$form_state) {
   drupal_set_message(t('Tax rate saved.'));
 
   $form_state['redirect'] = 'admin/commerce/config/taxes';
+
+  // Update string translations.
+  if (module_exists('i18n_string')) {
+    i18n_string_object_update('commerce_tax_rate', $tax_rate);
+  }
 }
 
 /**
@@ -453,6 +464,11 @@ function commerce_tax_ui_tax_type_form_submit($form, &$form_state) {
   drupal_set_message(t('Tax type saved.'));
 
   $form_state['redirect'] = 'admin/commerce/config/taxes/types';
+
+  // Update string translations.
+  if (module_exists('i18n_string')) {
+    i18n_string_object_update('commerce_tax_type', $tax_type);
+  }
 }
 
 /**

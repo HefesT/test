@@ -115,6 +115,8 @@ function commerce_tax_type_titles() {
   $titles = array();
 
   foreach (commerce_tax_types() as $name => $tax_type) {
+    // Use translated tax type.
+    $tax_type = commerce_i18n_object('commerce_tax_type', $tax_type);
     $titles[$name] = $tax_type['title'];
   }
 
@@ -130,6 +132,8 @@ function commerce_tax_commerce_price_component_type_info() {
   // Add a price component type for each tax rate that specifies it.
   foreach (commerce_tax_rates() as $name => $tax_rate) {
     if ($tax_rate['price_component']) {
+      // Use translated tax rate.
+      $tax_rate = commerce_i18n_object('commerce_tax_rate', $tax_rate);
       $components[$tax_rate['price_component']] = array(
         'title' => $tax_rate['title'],
         'display_title' => $tax_rate['display_title'],
@@ -209,6 +213,8 @@ function commerce_tax_rate_titles() {
   $titles = array();
 
   foreach (commerce_tax_rates() as $name => $tax_rate) {
+    // Use translated tax rate.
+    $tax_rate = commerce_i18n_object('commerce_tax_rate', $tax_rate);
     $titles[$name] = $tax_rate['title'];
   }
 
@@ -363,6 +369,8 @@ function commerce_tax_field_widget_form_alter(&$element, &$form_state, $context)
 
     foreach (commerce_tax_types() as $name => $tax_type) {
       if ($tax_type['display_inclusive']) {
+        // Use translated tax type.
+        $tax_type = commerce_i18n_object('commerce_tax_type', $tax_type);
         $inclusive_types[$name] = $tax_type['title'];
       }
     }
@@ -372,6 +380,8 @@ function commerce_tax_field_widget_form_alter(&$element, &$form_state, $context)
 
     foreach (commerce_tax_rates() as $name => $tax_rate) {
       if (in_array($tax_rate['type'], array_keys($inclusive_types))) {
+        // Use translated tax rate.
+        $tax_rate = commerce_i18n_object('commerce_tax_rate', $tax_rate);
         $options[$inclusive_types[$tax_rate['type']]][$name] = t('Including !title', array('!title' => $tax_rate['title']));
       }
     }

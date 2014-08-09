@@ -1,0 +1,166 @@
+diff --git a/modules/tax/commerce_tax.i18n.inc b/modules/tax/commerce_tax.i18n.inc
+new file mode 100644
+index 0000000..427181d
+--- /dev/null
++++ b/modules/tax/commerce_tax.i18n.inc
+@@ -0,0 +1,62 @@
++<?php
++
++/**
++ * @file
++ * Internationalization (i18n) integration for the Commerce tax module.
++ */
++
++/**
++ * Implements hook_i18n_object_info().
++ */
++function commerce_tax_i18n_object_info() {
++  $info['commerce_tax_rate'] = array(
++    'title' => t('Commerce tax rate'),
++    'key' => 'rules_component',
++    'class' => 'i18n_object_wrapper',
++    'string translation' => array(
++      'textgroup' => 'commerce',
++      'type' => 'name',
++      'properties' => array(
++        'title' => t('Title'),
++        'display_title' => t('Display title', array(), array('context' => 'title for display purposes')),
++        'description' => t('Description'),
++      ),
++    ),
++  );
++  $info['commerce_tax_type'] = array(
++    'title' => t('Commerce tax type'),
++    'key' => 'rule',
++    'class' => 'i18n_object_wrapper',
++    'string translation' => array(
++      'textgroup' => 'commerce',
++      'type' => 'name',
++      'properties' => array(
++        'title' => t('Title'),
++        'display_title' => t('Display title', array(), array('context' => 'title for display purposes')),
++        'description' => t('Description'),
++      ),
++    ),
++  );
++  return $info;
++}
++
++
++/**
++ * Implements hook_i18n_string_objects().
++ */
++function commerce_tax_i18n_string_objects($type) {
++  if ($type == 'commerce_tax_rate') {
++    $query = db_select('commerce_tax_rate', 'ctr')
++      ->fields('ctr', array('name', 'title', 'display_title', 'description'));
++    $query->addExpression("CONCAT('commerce_tax_rate_', ctr.name)", 'rules_component');
++    return $query->execute()
++      ->fetchAllAssoc('rules_component', PDO::FETCH_ASSOC);
++  }
++  if ($type == 'commerce_tax_type') {
++    $query = db_select('commerce_tax_type', 'ctt')
++      ->fields('ctt', array('name', 'title', 'display_title', 'description'));
++    $query->addExpression("CONCAT('commerce_tax_type_', ctt.name)", 'rule');
++    return $query->execute()
++      ->fetchAllAssoc('rule', PDO::FETCH_ASSOC);
++  }
++}
+\ No newline at end of file
+diff --git a/modules/tax/commerce_tax.module b/modules/tax/commerce_tax.module
+index bb56e77..e79dfa4 100644
+--- a/modules/tax/commerce_tax.module
++++ b/modules/tax/commerce_tax.module
+@@ -115,6 +115,8 @@ function commerce_tax_type_titles() {
+   $titles = array();
+ 
+   foreach (commerce_tax_types() as $name => $tax_type) {
++    // Use translated tax type.
++    $tax_type = commerce_i18n_object('commerce_tax_type', $tax_type);
+     $titles[$name] = $tax_type['title'];
+   }
+ 
+@@ -130,6 +132,8 @@ function commerce_tax_commerce_price_component_type_info() {
+   // Add a price component type for each tax rate that specifies it.
+   foreach (commerce_tax_rates() as $name => $tax_rate) {
+     if ($tax_rate['price_component']) {
++      // Use translated tax rate.
++      $tax_rate = commerce_i18n_object('commerce_tax_rate', $tax_rate);
+       $components[$tax_rate['price_component']] = array(
+         'title' => $tax_rate['title'],
+         'display_title' => $tax_rate['display_title'],
+@@ -209,6 +213,8 @@ function commerce_tax_rate_titles() {
+   $titles = array();
+ 
+   foreach (commerce_tax_rates() as $name => $tax_rate) {
++    // Use translated tax rate.
++    $tax_rate = commerce_i18n_object('commerce_tax_rate', $tax_rate);
+     $titles[$name] = $tax_rate['title'];
+   }
+ 
+@@ -363,6 +369,8 @@ function commerce_tax_field_widget_form_alter(&$element, &$form_state, $context)
+ 
+     foreach (commerce_tax_types() as $name => $tax_type) {
+       if ($tax_type['display_inclusive']) {
++        // Use translated tax type.
++        $tax_type = commerce_i18n_object('commerce_tax_type', $tax_type);
+         $inclusive_types[$name] = $tax_type['title'];
+       }
+     }
+@@ -372,6 +380,8 @@ function commerce_tax_field_widget_form_alter(&$element, &$form_state, $context)
+ 
+     foreach (commerce_tax_rates() as $name => $tax_rate) {
+       if (in_array($tax_rate['type'], array_keys($inclusive_types))) {
++        // Use translated tax rate.
++        $tax_rate = commerce_i18n_object('commerce_tax_rate', $tax_rate);
+         $options[$inclusive_types[$tax_rate['type']]][$name] = t('Including !title', array('!title' => $tax_rate['title']));
+       }
+     }
+diff --git a/modules/tax/includes/commerce_tax_ui.admin.inc b/modules/tax/includes/commerce_tax_ui.admin.inc
+index adc521c..5a4be58 100644
+--- a/modules/tax/includes/commerce_tax_ui.admin.inc
++++ b/modules/tax/includes/commerce_tax_ui.admin.inc
+@@ -74,6 +74,9 @@ function commerce_tax_ui_overview($type) {
+ function theme_tax_rate_admin_overview($variables) {
+   $tax_rate = $variables['tax_rate'];
+ 
++  // Use translated tax rate.
++  $tax_rate = commerce_i18n_object('commerce_tax_rate', $tax_rate);
++
+   // Build the description as an array so we can skip the actual tax rate
+   // description if it isn't set and just include the rate.
+   $description = array();
+@@ -104,6 +107,9 @@ function theme_tax_rate_admin_overview($variables) {
+ function theme_tax_type_admin_overview($variables) {
+   $tax_type = $variables['tax_type'];
+ 
++  // Use translated tax type.
++  $tax_type = commerce_i18n_object('commerce_tax_type', $tax_type);
++
+   $output = check_plain($tax_type['title']);
+   $output .= ' <small>' . t('(Machine name: @type)', array('@type' => $tax_type['name'])) . '</small>';
+   $output .= '<div class="description">' . filter_xss_admin($tax_type['description']) . '</div>';
+@@ -266,6 +272,11 @@ function commerce_tax_ui_tax_rate_form_submit($form, &$form_state) {
+   drupal_set_message(t('Tax rate saved.'));
+ 
+   $form_state['redirect'] = 'admin/commerce/config/taxes';
++
++  // Update string translations.
++  if (module_exists('i18n_string')) {
++    i18n_string_object_update('commerce_tax_rate', $tax_rate);
++  }
+ }
+ 
+ /**
+@@ -453,6 +464,11 @@ function commerce_tax_ui_tax_type_form_submit($form, &$form_state) {
+   drupal_set_message(t('Tax type saved.'));
+ 
+   $form_state['redirect'] = 'admin/commerce/config/taxes/types';
++
++  // Update string translations.
++  if (module_exists('i18n_string')) {
++    i18n_string_object_update('commerce_tax_type', $tax_type);
++  }
+ }
+ 
+ /**

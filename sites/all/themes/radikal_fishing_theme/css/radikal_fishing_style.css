@@ -484,12 +484,32 @@ html:lang(es) #block-superfish-1 .sf-item-6 {
 
 /*Cart view styles*/
 /* h2 field name title*/
-#views-form-commerce-cart-form-default div table tbody tr td div.commerce-product-product div.content h2.field-name-title-field {
+#views-form-commerce-cart-form-default div table tbody tr td div.entity-commerce-product div.content .field-name-title-field {
     margin: 0;
 }
 
 /*div wraper for product title*/
-#views-form-commerce-cart-form-default div table tbody tr td div.commerce-product-product div.content h2.field-name-title-field div {
+/*#views-form-commerce-cart-form-default div table tbody tr td div.commerce-product-product div.content h2.field-name-title-field div {*/
+#views-form-commerce-cart-form-default div table tbody tr td div.entity-commerce-product div.content .field-name-title-field div {
+    
     color: #999CBF;
     font-size: 16px;
+}
+
+/*Block slideshow brands styles*/
+#views_slideshow_cycle_teaser_section_brands_slideshows-block div.views-slideshow-cycle-main-frame-row {
+    display: inline;
+}
+
+/*Product Attribute select widget spanish align*/
+html:lang(es) .responsive-layout-normal .commerce-add-to-cart div div.attribute-widgets div.form-type-select select {
+    /*margin-left: 35px;*/
+    margin-left: 24px;
+}
+html:lang(es) .responsive-layout-normal .commerce-add-to-cart div.form-item-quantity input#edit-quantity {
+    margin-left: 30px;
+}
+
+html:lang(es) .responsive-layout-normal {
+    background-color: #ccc;
 }

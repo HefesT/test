@@ -511,5 +511,15 @@ html:lang(es) .responsive-layout-normal .commerce-add-to-cart div.form-item-quan
 }
 
 html:lang(es) .responsive-layout-normal {
-    background-color: #ccc;
+/*    background-color: #ccc;*/
+}
+
+/* Search bar on regionuser-first*/
+#region-user-first #block-views-exp-display-products-page .form-text {
+    height: 33px;
+}
+
+#region-user-first #block-views-exp-display-products-page {
+    padding-top: 0px;
+    float: left;
 }

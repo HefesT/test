@@ -517,9 +517,26 @@ html:lang(es) .responsive-layout-normal {
 /* Search bar on regionuser-first*/
 #region-user-first #block-views-exp-display-products-page .form-text {
     height: 33px;
+    margin-top: 0px;
 }
 
 #region-user-first #block-views-exp-display-products-page {
     padding-top: 0px;
+    float: left;
+}
+
+/* Language icons dropdown language switcher */
+
+#lang_dropdown_form_language div img {
+    vertical-align: middle;
+}
+
+form#lang_dropdown_form_language.lang_dropdown_form.language {
+    padding-top: 4px;
+} 
+
+/* User account menu fixed top bar. */
+
+div#block-menu-menu-user-menu.block.block-menu.block-menu-user-menu.block-menu-menu-user-menu.odd.block-without-title {
     float: left;
 }

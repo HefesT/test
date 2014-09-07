@@ -45,8 +45,8 @@
 * --
 **************************************************/
 body {
-  /*background: #ececec url("../images/bg.png") left top; }*/
-  background: #ececec url("../images/bg.png") center; }
+  background: none repeat scroll center center #1A5F89; }
+  /*background: #ececec url("../images/bg.png") center; }*/
 
 .responsive-layout-mobile .facetapi-lists {
   display: none; }

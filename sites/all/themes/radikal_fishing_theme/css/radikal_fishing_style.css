@@ -380,9 +380,27 @@ div.messages.commerce-add-to-cart-confirmation {
   background: url("../images/btn_google.png") no-repeat; }
 
 
+/* Front page styles */
 
+/* Video front banner*/
+div.player {
+    margin-top: 15px;
+}
 
-/*Prueba de añadir css a superfish*/
+/* Brands Slideshow block -  .view-dom-id-4e16bc4dc7b95126cdd850162978e563 */
+div.view.view-brands-slideshows.view-id-brands_slideshows.view-display-id-block{
+    margin-left: 15%;
+}
+div#block-views-brands-slideshows-block.block.block-views.contextual-links-region.block-brands-slideshows-block.block-views-brands-slideshows-block{    
+    /*background-color: #4772B3;*/
+    margin-top: 15px;
+    margin-left: 15px;
+}
+div.views-slideshow-cycle-main-frame-row-item.views-row {
+    border: 5px solid #484848;
+}
+/* Styles for Product category superfish menu */
+
 /*.sf-menu.sf-style-simple a, .sf-menu.sf-style-simple a:visited {*/
 /*.sf-menu .sf-style-simple .sf-menu-parents a {*/
 
@@ -391,7 +409,7 @@ div.messages.commerce-add-to-cart-confirmation {
 */
 #superfish-1 .rf-main-menu-links {
     color: #FFFFFF;;
-    border-radius: 14px;
+    border-radius: 11px;
     /*background: -moz-linear-gradient(center top , #FFF, #C2E9FB) repeat scroll 0% 0% transparent;*/
     /*color: #555;*/
     font: 12px Arial,Helvetica,Tahoma,Verdana,Sans-serif;
@@ -402,14 +420,15 @@ div.messages.commerce-add-to-cart-confirmation {
     text-shadow: none;
     text-align: center;
     
-    background: #2f2ad3; /* Old browsers */
-    background: -moz-linear-gradient(top,  #2f2ad3 0%, #9c9bf2 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2f2ad3), color-stop(100%,#9c9bf2)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #2f2ad3 0%,#9c9bf2 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #2f2ad3 0%,#9c9bf2 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #2f2ad3 0%,#9c9bf2 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #2f2ad3 0%,#9c9bf2 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2f2ad3', endColorstr='#9c9bf2',GradientType=0 ); /* IE6-9 */
+    background-color: #333;
+/*    background: #2f2ad3;  Old browsers 
+    background: -moz-linear-gradient(top,  #2f2ad3 0%, #9c9bf2 100%);  FF3.6+ 
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2f2ad3), color-stop(100%,#9c9bf2));  Chrome,Safari4+ 
+    background: -webkit-linear-gradient(top,  #2f2ad3 0%,#9c9bf2 100%);  Chrome10+,Safari5.1+ 
+    background: -o-linear-gradient(top,  #2f2ad3 0%,#9c9bf2 100%);  Opera 11.10+ 
+    background: -ms-linear-gradient(top,  #2f2ad3 0%,#9c9bf2 100%);  IE10+ 
+    background: linear-gradient(to bottom,  #2f2ad3 0%,#9c9bf2 100%);  W3C 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2f2ad3', endColorstr='#9c9bf2',GradientType=0 );  IE6-9 */
 
 }
 

@@ -1175,6 +1175,7 @@ function feeds_ui_importer_import_submit($form, &$form_state) {
   $importer = feeds_importer($importer->id);
   $importer->setConfig($importer->config);
   foreach (array('fetcher', 'parser', 'processor') as $type) {
+    $importer->setPlugin($importer->config[$type]['plugin_key']);
     $importer->$type->setConfig($importer->config[$type]['config']);
   }
   $importer->save();

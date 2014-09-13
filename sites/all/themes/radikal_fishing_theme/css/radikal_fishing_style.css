@@ -489,9 +489,10 @@ html:lang(es) #block-superfish-1 .sf-item-6 {
 #region-content ul.products-per-collection  li.views-row .views-field span.field-content article.node-product-type-product-list div.content div.form-item.form-type-item{
     float: left;
 }
-/*#region-content ul.products-per-collection  li.views-row .views-field span.field-content article.node-product-type-product-list div.content div.field-name-field-brand-image{
+#region-content ul.products-per-collection  li.views-row .views-field span.field-content article.node-product-type-product-list div.content div.field-name-field-brand-image{
     float: right;
-}*/
+    margin-right: 15px;
+}
 #region-content ul.products-per-collection  li.views-row .views-field span.field-content article.node-product-type-product-list div.content div.form-item.form-type-item label {
     display: none;
 }    

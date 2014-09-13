@@ -480,11 +480,21 @@ html:lang(es) #block-superfish-1 .sf-item-6 {
     border-radius: 8px;
     padding-bottom: 0px;
     clear: none;
-}
+}  
 
 #region-content ul.products-per-collection  li.views-row:hover{
     opacity:    0.5;
 }
+#region-content ul.products-per-collection  li.views-row .views-field span.field-content article.node-product-type-product-list div.content div.field-commerce-price,
+#region-content ul.products-per-collection  li.views-row .views-field span.field-content article.node-product-type-product-list div.content div.form-item.form-type-item{
+    float: left;
+}
+/*#region-content ul.products-per-collection  li.views-row .views-field span.field-content article.node-product-type-product-list div.content div.field-name-field-brand-image{
+    float: right;
+}*/
+#region-content ul.products-per-collection  li.views-row .views-field span.field-content article.node-product-type-product-list div.content div.form-item.form-type-item label {
+    display: none;
+}    
 /*#region-content .view-collection-products .view-content ul.products-per-collection  li.views-row span article a {*/
 /*.view-collection-taxonomy-term .view-content .item-list .products-per-collection li .commerce-product-field {*/
  

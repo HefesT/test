@@ -469,6 +469,13 @@ html:lang(es) #block-superfish-1 .sf-item-6 {
     width: 72px;
 }
 
+#block-superfish-1 {
+  /*display: -moz-box;*/
+    float: left;
+    position: relative;
+}  
+
+
 /*
 *   Styles for view-collection-products
 */
@@ -569,4 +576,13 @@ form#lang_dropdown_form_language.lang_dropdown_form.language {
 
 div#block-menu-menu-user-menu.block.block-menu.block-menu-user-menu.block-menu-menu-user-menu.odd.block-without-title {
     float: left;
+}
+
+
+
+
+/* Styles for view products list by category */
+div.view-grouping-header{
+    background-color: #333;
+    color: white;
 }
